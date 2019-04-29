@@ -1,11 +1,14 @@
 <?php
 
-
 namespace Saiks24\Parser;
 
 
 use Saiks24\FileSystem\FileInterface;
 
+/** Получить информацию по access_log веб сервера Nginx
+ * Class NginxAccessLogParser
+ * @package Saiks24\Parser
+ */
 class NginxAccessLogParser implements LogParserInterface
 {
     /** @var string Регулярное выражение для парсинга логов */
@@ -41,17 +44,26 @@ class NginxAccessLogParser implements LogParserInterface
     }
 
 
+    /**
+     * @inheritDoc
+     */
     public function parse(): ?array
     {
         while (!$this->logFile->isAndOfFile()) {
             $parsedInfoFromString = $this->parseString(
                 $this->logFile->readNextLine()
             );
+            if(empty($parsedInfoFromString)) {
+                continue;
+            }
             $this->updateResultOfLogParsing($parsedInfoFromString[0]);
         }
         return $this->compileResultOfParsing();
     }
 
+    /** Получить агрегированную информацию по парсингу
+     * @return array
+     */
     private function compileResultOfParsing() : array
     {
         $logStatistics = [];
@@ -63,6 +75,9 @@ class NginxAccessLogParser implements LogParserInterface
         return $logStatistics;
     }
 
+    /** Добавить результат парсинга строки в промежуточные итоги выполнения
+     * @param array $logFileStringInfo
+     */
     private function updateResultOfLogParsing(array $logFileStringInfo)
     {
         $this->views++;
@@ -88,6 +103,10 @@ class NginxAccessLogParser implements LogParserInterface
         }
     }
 
+    /** Определить поискового бота
+     * @param string $client
+     * @return string|null
+     */
     private function findCrawler(string $client) : ?string
     {
         if(stripos($client,'Googlebot')) {

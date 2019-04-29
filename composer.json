@@ -19,6 +19,8 @@
     "psr-4": {
       "Saiks24\\FileSystem\\": "src/FileSystem",
       "Saiks24\\Parser\\": "src/Parser",
+      "Saiks24\\Exceptions\\": "src/Exceptions",
+      "Saiks24\\App\\": "src/App",
       "Saiks24\\Render\\": "src/Render"
     }
   },

@@ -1,9 +1,15 @@
 <?php
+
 namespace Saiks24\Parser;
 
-use Saiks24\FileSystem\FileInterface;
-
+/** Интерфейс парсинга логов
+ * Interface LogParserInterface
+ * @package Saiks24\Parser
+ */
 interface LogParserInterface
 {
+    /** Получить результат парсинга log файла
+     * @return array|null
+     */
     public function parse() : ?array ;
 }

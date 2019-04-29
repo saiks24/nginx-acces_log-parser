@@ -1,12 +1,17 @@
 <?php
 
-
 namespace Saiks24\Render;
 
-
+/** Отображает информацию клиету по HTTP
+ * Class HttpRender
+ * @package Saiks24\Render
+ */
 class HttpRender implements RenderInterface
 {
 
+    /**
+     * @inheritDoc
+     */
     public function render(array $parsedData): void
     {
         $outPutMessage = json_encode($parsedData,JSON_UNESCAPED_UNICODE);
