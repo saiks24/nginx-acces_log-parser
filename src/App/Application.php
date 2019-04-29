@@ -2,13 +2,7 @@
 
 namespace Saiks24\App;
 
-use Saiks24\Exceptions\WrongLogFileExtension;
-use Saiks24\FileSystem\FileInterface;
-use Saiks24\FileSystem\LogFile;
 use Saiks24\Parser\LogParserInterface;
-use Saiks24\Parser\NginxAccessLogParser;
-use Saiks24\Render\ConsoleRender;
-use Saiks24\Render\HttpRender;
 use Saiks24\Render\RenderInterface;
 
 /** Основной класс приложения
