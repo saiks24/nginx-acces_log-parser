@@ -12,7 +12,7 @@ use Saiks24\Render\RenderInterface;
 class Application
 {
 
-    /** @var self */
+    /** @var self  Инстанс приложения*/
     private static $instance;
 
     /** Получить инстанс приложения
