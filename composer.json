@@ -1,0 +1,27 @@
+{
+  "name": "saiks24/nginx-access_log-parser",
+  "description": "Parse nginx access_log",
+  "homepage": "https://github.com/saiks24/nginx-acces_log-parser",
+  "keywords": ["php","nginx","logs","parse"],
+  "authors": [
+    {
+      "name": "Saiks24",
+      "email": "saiks1337@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "license": "Apache-2",
+  "require": {
+    "ext-pcntl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Saiks24\\Task\\": "src/Task",
+      "Saiks24\\Process\\": "src/Process",
+      "Saiks24\\Core\\": "src/Core"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5"
+  }
+}
